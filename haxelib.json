@@ -1,0 +1,14 @@
+{
+  "name": "breezy-neural-networks",
+  "url": "https://github.com/kevin-kmetz/breezy-neural-networks",
+  "license": "MIT",
+  "tags": ["neural-network", "machine-learning", "deep-learning", "AI"],
+  "description": "A lightweight, simple-to-use neural network library for Haxe.",
+  "version": "0.1.0-alpha",
+  "dependencies": {
+    "dense-linear-algebra": ""
+  },
+  "releasenote": "Initial alpha release.",
+  "contributors": "kevin-kmetz",
+  "classPath": "src"
+}
