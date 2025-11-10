@@ -2,6 +2,8 @@
  * breezy-neural-networks/src/breezy/MLP.hx
  */
 
+package breezy;
+
 import dense.Vector;
 
 /**
@@ -48,6 +50,16 @@ class MLP {
     }
 
     return new MLP(layers);
+  }
+
+  public function feedForward(inputActivation:Vector):Vector {
+    var currentActivation = inputActivation;
+
+    for (i in 0...layers) {
+      currentActivation = layers[i].feedForward(currentActivation);
+    }
+
+    return currentActivation;
   }
 }
 

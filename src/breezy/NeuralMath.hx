@@ -2,6 +2,8 @@
  * breezy-neural-networks/src/breezy/NeuralMath.hx
  */
 
+package breezy;
+
 /**
  * A class for static methods representing various mathematical functions used
  * in neural networks.

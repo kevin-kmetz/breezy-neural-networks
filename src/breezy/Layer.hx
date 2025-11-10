@@ -2,6 +2,8 @@
  * breezy-neural-networks/src/breezy/Layer.hx
  */
 
+package breezy;
+
 import dense.Vector;
 import dense.Matrix;
 
