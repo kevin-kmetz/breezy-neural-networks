@@ -19,3 +19,4 @@ class NeuralMath {
     return 1.0 / (1.0 + Math.exp(-value));
   }
 }
+
