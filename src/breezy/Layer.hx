@@ -49,21 +49,30 @@ class Layer {
     return new Layer(weights, biases);
   }
 
+  /**
+   * Converts input activation from a preceding layer into output activation
+   * for the subsequent layer.
+   */
   public function feedForward(inputActivation:Vector):Vector {
     return applyActivation(
-             sumEdgesAddBias(
-               calculateEdges(inputActivation)
+             addBias(
+               applyEdgeWeights(inputActivation)
              )
            );
   }
 
-  private function calculateEdges(inputActivation:Vector):Matrix {
-    return weights.multiplyVector(inputActivation);
+  private function applyEdgeWeights(inputActivation:Vector):Vector {
+    return weights
+             .multiplyVector(inputActivation)
+             .getColumn(0);
   }
 
-  private function sumEdgesAddBias(preActivation:Matrix):Vector {
+  private function addBias(linearPreActivation:Vector):Vector {
+    return linearPreActivation.addVector(biases);
   }
 
-  private function applyActivation(preActivation:Vector):Vector {
+  private function applyActivation(affinePreActivation:Vector):Vector {
+    return affinePreActivation.map(activationFunc);
   }
 }
+
