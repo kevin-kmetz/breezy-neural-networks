@@ -28,6 +28,8 @@ class Layer {
 
     this.weights = weights;
     this.biases = biases;
+
+    this.activationFunc = activationFunc;
   }
 
   /**
@@ -43,12 +45,13 @@ class Layer {
    */
   public static function uniformlyRandomized(
     neuronCount:Int, inputNeuronCount:Int,
-    activationFunc:Float -> Float = breezy.NeuralMath.sigmoid
+    ?activationFunc:Float -> Float
   ):Layer {
+    activationFunc ??= breezy.NeuralMath.sigmoid;
     final weights = Matrix.randomized(neuronCount, inputNeuronCount, -1.0, 1.0);
     final biases = Vector.randomized(neuronCount, -1.0, 1.0);
 
-    return new Layer(weights, biases);
+    return new Layer(weights, biases, activationFunc);
   }
 
   /**
